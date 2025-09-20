@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb6y45c6yv1a7"]
+
+[ext_resource type="PackedScene" uid="uid://cwx732j0hcg0h" path="res://Animation fbx/Model.fbx" id="1_xrqry"]
+
+[node name="Dying Backwards" instance=ExtResource("1_xrqry")]
+
+[node name="Skeleton3D" parent="." index="0"]
+bones/0/position = Vector3(-0.480455, 2.88101, -0.0532509)
+bones/0/rotation = Quaternion(0.00993661, -0.0274871, -0.0123914, 0.999496)
+bones/1/rotation = Quaternion(-0.00658853, -0.00257241, 0.00332441, 0.999969)
+bones/2/rotation = Quaternion(-0.0353041, -0.00503459, 0.00992239, 0.999315)
+bones/3/rotation = Quaternion(-0.0352824, -0.00512343, 0.00995476, 0.999315)
+bones/4/rotation = Quaternion(0.0359829, 0.00160123, 0.0119159, 0.99928)
+bones/5/rotation = Quaternion(0.0188259, 0.0160399, -0.0038244, 0.999687)
+bones/7/rotation = Quaternion(0.581109, 0.366856, -0.648551, 0.327276)
+bones/8/rotation = Quaternion(0.370079, 0.31796, 0.223735, 0.843733)
+bones/9/rotation = Quaternion(-0.000113887, 0.000303774, 0.00751508, 0.999972)
+bones/11/rotation = Quaternion(0.622009, -0.358658, 0.593503, 0.363626)
+bones/12/rotation = Quaternion(0.339466, -0.219344, -0.136472, 0.904448)
+bones/13/rotation = Quaternion(-5.12879e-05, -1.53156e-05, -0.00284051, 0.999996)
+bones/15/rotation = Quaternion(0.0502915, 0.116157, 0.990212, -0.0588122)
+bones/16/rotation = Quaternion(-0.261315, -0.0615963, 0.0573154, 0.96158)
+bones/17/rotation = Quaternion(0.802839, 0.0571685, -0.163566, 0.570463)
+bones/18/rotation = Quaternion(0.00536131, 0.000261738, 0.0487586, 0.998796)
+bones/20/rotation = Quaternion(-0.0443192, 0.0911119, 0.994441, 0.0286609)
+bones/21/rotation = Quaternion(-0.224019, -0.0145896, -0.0321829, 0.973944)
+bones/22/rotation = Quaternion(0.799612, -0.0766164, 0.139314, 0.579087)
+bones/23/rotation = Quaternion(0.00511104, -0.000240509, -0.0468585, 0.998888)

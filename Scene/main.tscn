@@ -1,0 +1,69 @@
+[gd_scene load_steps=14 format=3 uid="uid://pivr2mdhb6n7"]
+
+[ext_resource type="Script" uid="uid://css3fh0hml36g" path="res://Script/main.gd" id="1_ow1sv"]
+[ext_resource type="Texture2D" uid="uid://ds0qh7o6uvvcq" path="res://asset/Rock050_1K-JPG/Rock050_1K-JPG_Color.jpg" id="2_1xcnr"]
+[ext_resource type="Texture2D" uid="uid://cihsqj4mr6svl" path="res://asset/Rock050_1K-JPG/Rock050_1K-JPG_AmbientOcclusion.jpg" id="3_ow1sv"]
+[ext_resource type="Texture2D" uid="uid://cy0v8chmyprl3" path="res://asset/Rock050_1K-JPG/Rock050_1K-JPG_NormalGL.jpg" id="4_75buv"]
+[ext_resource type="Texture2D" uid="uid://dnca8yxd60nm0" path="res://asset/Rock050_1K-JPG/Rock050_1K-JPG_Roughness.jpg" id="5_c2iwn"]
+[ext_resource type="PackedScene" uid="uid://bpbx13rgjhljp" path="res://Scene/world_environment.tscn" id="6_3pt4j"]
+[ext_resource type="PackedScene" uid="uid://wkmg7o1ue4px" path="res://asset/Rocketship.glb" id="7_75buv"]
+[ext_resource type="PackedScene" uid="uid://ctklvycfmr3cf" path="res://Scene/Model.tscn" id="7_ow1sv"]
+[ext_resource type="PackedScene" uid="uid://c8tanwcr1um0e" path="res://asset/Asteroid.glb" id="9_3pt4j"]
+[ext_resource type="PackedScene" uid="uid://ddeukugjmhmr5" path="res://asset/Planet.glb" id="10_7y4ci"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7y4ci"]
+albedo_texture = ExtResource("2_1xcnr")
+roughness_texture = ExtResource("5_c2iwn")
+normal_enabled = true
+normal_scale = 1.5
+normal_texture = ExtResource("4_75buv")
+ao_enabled = true
+ao_texture = ExtResource("3_ow1sv")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sblpm"]
+material = SubResource("StandardMaterial3D_7y4ci")
+size = Vector2(200, 200)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_r34rm"]
+points = PackedVector3Array(-100, 0, -100, -100, 0, 100, 100, 0, -100, 100, 0, 100)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_ow1sv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_sblpm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D"]
+shape = SubResource("ConvexPolygonShape3D_r34rm")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.811496, -0.17289, -0.558196, -0.117171, 0.887689, -0.445285, 0.57249, 0.426751, 0.700099, -7.47899, 1.57064, 20.5954)
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("6_3pt4j")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.638539, 0.769589, 0, -0.769589, 0.638539, 0, 38.4557, 58.2283)
+light_energy = 0.5
+
+[node name="Rocketship" parent="." instance=ExtResource("7_75buv")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8.36064, 0, 13.3546)
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="Model" parent="Model" instance=ExtResource("7_ow1sv")]
+transform = Transform3D(0.846816, 0, -0.531886, 0, 1, 0, 0.531886, 0, 0.846816, 0, 0, 0)
+
+[node name="Model3" parent="Model" instance=ExtResource("7_ow1sv")]
+transform = Transform3D(-0.286157, 0, 0.958183, 0, 1, 0, -0.958183, 0, -0.286157, -6.5912, 0, 0)
+
+[node name="Model4" parent="Model" instance=ExtResource("7_ow1sv")]
+transform = Transform3D(0.880792, 0, -0.473504, 0, 1, 0, 0.473504, 0, 0.880792, 11.1686, 0, -7.7996)
+
+[node name="Model2" parent="Model" instance=ExtResource("7_ow1sv")]
+transform = Transform3D(0.585722, 0, -0.810512, 0, 1, 0, 0.810512, 0, 0.585722, 6.42889, 0, 17.6286)
+
+[node name="Planet" parent="." instance=ExtResource("10_7y4ci")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -29.1544, 31.0476, -65.8168)
+
+[node name="Asteroid" parent="." instance=ExtResource("9_3pt4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4475, 27.2548, -26.845)
